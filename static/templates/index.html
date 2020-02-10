@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grouipie Tracker</title>
+    <link rel="stylesheet" href="/static/styles/index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    {{$API := .}}
+<div class="wrapper"></div>
+    <div class="container">
+      <div class="searchBar">
+        <a href="http://gtrackers.herokuapp.com/" class="title">Groupie Trackers</a> <br> <br>
+          <form action="/" method="POST"><br>
+            <input class="search" id="sch" type="text" name="toSearch" list="list" placeholder="Search">
+            <datalist id="list">
+                {{range $i, $v := .Artists}}<option>{{(index $API.Artists $i).Name}}  //  Artist</option>{{end}}
+                {{range $i, $v := .Artists}}{{range .Members }}<option>{{.}}  //  Member</option>{{end}}{{end}}
+                {{range $i, $v := .Locations.Index}}{{range .Locations }}<option>{{.}}  //  Location</option>{{end}}{{end}}
+                {{range $i, $v := .Artists}}<option>{{(index $API.Artists $i).FirstAlbum}}  //  First Album</option>{{end}}
+                {{range $i, $v := .Artists}}<option>{{(index $API.Artists $i).CreationDate}}  //  Creation Date</option>{{end}}
+            </datalist>
+            <select class="selector" id="sType" name="searchType">
+              <option selected value="artist">Artist</option>
+              <option value="member">Member</option>
+              <option value="location">Location</option>
+              <option value="firstAlbum">First Album</option>
+              <option value="creationDate">Creation Date</option>
+            </select>
+            <button type="submit">Search</button><br><br>
+      </div>
+    </div>
+    <script src="/static/js/js.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grouipie Tracker</title>
+    <link rel="stylesheet" href="/static/styles/artist.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"/>
+  </head>
+  <body>
+    {{$API := .}} {{$ID := .ID}}
+    <div class="bg-image" style="
+    background-image: url({{ (index .Artists $ID).Image }});
+    filter: blur(25px);
+    -webkit-filter: blur(25px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;">
+  </div>
+    <div class="container">
+      <div><img class="cover" src="{{ (index .Artists $ID).Image }}" /></div>
+      <div class="info">
+        <p class="nametitle">{{ (index .Artists $ID).Name }}</p>
+        <p class="infotitle">Members:</p>
+        <p class="infotext">/ {{ range (index .Artists $ID).Members }} {{.}} / {{end}}</p>
+        <p class="infotitle">Creation date:</p>
+        <p class="dates">{{ (index .Artists $ID).CreationDate }}</p>
+        <p class="infotitle">First album:</p>
+        <p class="dates">{{ (index .Artists $ID).FirstAlbum }}</p>
+      </div>
+      <div class="nav">
+        <a href="http://gtrackers.herokuapp.com/" class="link">Main</a><br /><br />
+        <a href="https://groupietrackers.herokuapp.com/api" class="link">API</a><br /><br />
+        <a href="https://github.com/alseiitov" class="link">Author</a><br /><br />
+      </div>
+      <div class="concerts">
+        <p class="infotitle">Concert Dates:</p>
+        <br />
+        {{range $i, $v := (index .Locations.Index $ID).Locations}}
+        <p class="cities">{{ . }}</p>
+        {{ range index (index $API.Relation.Index $ID).DatesLocations $v}}
+        <p class="dates">{{.}}</p>
+        {{end}}<br />
+        {{end}}
+      </div>
+    </div>
+    <script src="/static/js/js.js"></script>
+  </body>
+</html>
