@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"strconv"
 	"strings"
@@ -136,6 +137,11 @@ func parseJSON() {
 }
 
 func indexHandle(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.Error(w, "404 not found.", http.StatusNotFound)
+		return
+	}
+
 	switch r.Method {
 	case "GET":
 		temp, err := template.ParseFiles("./static/templates/index.html")
@@ -145,8 +151,36 @@ func indexHandle(w http.ResponseWriter, r *http.Request) {
 		}
 		temp.Execute(w, API)
 	case "POST":
-		toSearch := r.FormValue("toSearch")
-		searchType := r.FormValue("searchType")
+		var toSearch string
+		var searchType string
+
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			http.Error(w, "400 Bad request", http.StatusBadRequest)
+			return
+		}
+		query, err := url.ParseQuery(string(body))
+		if err != nil {
+			http.Error(w, "400 Bad request", http.StatusBadRequest)
+			return
+		}
+
+		for i, v := range query {
+			switch i {
+			case "toSearch":
+				toSearch = v[0]
+			case "searchType":
+				searchType = v[0]
+			default:
+				http.Error(w, "400 Bad request", 400)
+				return
+			}
+		}
+
+		if searchType != "artist" && searchType != "member" && searchType != "location" && searchType != "firstAlbum" && searchType != "creationDate" {
+			http.Error(w, "400 Bad request", http.StatusBadRequest)
+			return
+		}
 
 		switch searchType {
 		case "artist":
@@ -161,7 +195,6 @@ func indexHandle(w http.ResponseWriter, r *http.Request) {
 			sendCreationDate(w, r, toSearch)
 		}
 	}
-
 }
 
 func sendArtist(w http.ResponseWriter, r *http.Request, toSearch string) {
