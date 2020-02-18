@@ -2,10 +2,16 @@
 <html>
   <head>
     <title>Grouipie Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <link rel="stylesheet" href="/static/styles/artist.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
       rel="stylesheet"/>
+      <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
   </head>
   <body>
     {{$API := .}} {{$ID := .ID}}
@@ -43,8 +49,9 @@
         <p class="dates">{{.}}</p>
         {{end}}<br />
         {{end}}
+        <div id="map"></div>
       </div>
     </div>
-    <script src="/static/js/js.js"></script>
+    <script src="/static/js/map.js"></script>
   </body>
 </html>

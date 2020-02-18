@@ -133,3 +133,8 @@ button {
 .cities {
   text-transform: uppercase;
 }
+
+#map {
+  width: 860px;
+  height: 400px;;
+}
