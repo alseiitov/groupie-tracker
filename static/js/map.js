@@ -1,8 +1,3 @@
-/**
- * Moves the map to display over Berlin
- *
- * @param  {H.Map} map      A HERE Map instance within the application
- */
 //Step 1: initialize communication with the platform
 var platform = new H.service.Platform({
     apikey: "chDMQRlDRv0KngLYo3sXcOtNBESgx1eEU199e4Z1B7U"
@@ -33,10 +28,10 @@ window.onload = function () {
         fetch('https://geocoder.ls.hereapi.com/6.2/geocode.json?searchtext=' + locations[i].textContent + '&gen=9&apiKey=chDMQRlDRv0KngLYo3sXcOtNBESgx1eEU199e4Z1B7U')
             .then(response => response.json())
             .then(data => {
-                let lat = data.Response.View[0].Result[0].Location.DisplayPosition.Latitude;
-                let lng = data.Response.View[0].Result[0].Location.DisplayPosition.Longitude;
-                map.addObject(new H.map.Marker({ lat: lat, lng: lng }));
-            }
-            )
+                map.addObject(new H.map.Marker({
+                    lat: data.Response.View[0].Result[0].Location.DisplayPosition.Latitude,
+                    lng: data.Response.View[0].Result[0].Location.DisplayPosition.Longitude
+                }));
+            })
     }
 }

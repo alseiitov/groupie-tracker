@@ -1,45 +1,42 @@
 .wrapper {
-  width:100%;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706);
+  background: linear-gradient(45deg, #F17C58, #E94584, #24AADB, #27DBB1, #FFDC18, #FF3706);
   background-size: 600% 100%;
   animation: gradient 15s linear infinite;
   animation-direction: alternate;
 }
 
 @keyframes gradient {
-  0% {background-position: 0%}
-  100% {background-position: 100%}
+  0% {
+    background-position: 0%
+  }
+  100% {
+    background-position: 100%
+  }
 }
 
+body, html {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
 
 * {
   margin: 0px 0px 0px 0px;
-}
-
-body,
-html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
- 
-  justify-content: center;
-  position: absolute;
-  text-decoration: none;
 }
 
 input {
   background-color: rgba(255, 255, 255, 0);
   color: rgb(255, 255, 255);
   border: 1px solid white;
-  height: 30px;
+  height: 34px;
   border-radius: 5px;
   padding-left: 10px;
-  font-size: 18px;
+  font-size: 16px;
   transition: 0.5s;
 }
-input:hover{
+
+input:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
 }
@@ -49,8 +46,8 @@ button {
   color: rgb(255, 255, 255);
   border: 1px solid white;
   height: 34px;
-  width: 105px;
-  font-size: 18px;
+  width: 130px;
+  font-size: 16px;
   border-radius: 5px;
   padding-left: 10px;
   transition: 0.5s;
@@ -59,31 +56,30 @@ button {
 button:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
-
 }
 
 .container {
-  display: flex;
   justify-content: center;
-  padding: 18px;
-  height: 900px;
-  width: 1200px;
-  padding: none;
-  font-size: 18px;
-  border: none;
-  border-radius: 30px;
+  text-align: center;
   background-color: rgba(0, 0, 0, 0.6);
-  color: rgb(0, 0, 0);
+  display: grid;
+  width: 90vw;
+  max-width: 1000px;
+  height: 90vw;
+  max-height: 1000px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: white;
 }
 
 .title {
   font-family: 'Megrim', cursive;
-  font-size: 65px;
+  font-size: 50px;
   font-weight: 600;
   text-decoration: none;
   text-align: center;
@@ -91,16 +87,15 @@ button:hover {
   margin-bottom: 50px;
 }
 
-.searchBar{
+.searchBar {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-
 .search {
-  width: 300px;
+  width: 45%;
 }
 
 .selector {
@@ -114,12 +109,49 @@ button:hover {
   background-size: 10px 10px;
   -webkit-appearance: none;
   outline: none;
-  width: 150px;
-  font-size: 18px;
+  width: 130px;
+  font-size: 16px;
   transition: 0.5s;
 }
 
-.selector:hover{
+.selector:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
+}
+
+@media all and (max-device-width: 1200px) {
+  .title {
+    font-size: 50px;
+  }
+  .container {
+      padding: 10px;
+      justify-content: center;
+      display: table;
+      height: 90vh;
+      overflow: scroll;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .search {
+    width: 260px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .selector {
+    width: 125px;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  button {
+    margin-left: 5px;
+    width: 125px;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 10px;
+
+  }
 }

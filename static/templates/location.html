@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Grouipie Tracker</title>
-    <link rel="stylesheet" href="/static/styles/member.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-      rel="stylesheet"/>
-  </head>
-  <body>
-    <div class="wrapper"></div>
-    <div class="container">
-        <h1 class="title">
-          {{.Title}}:<br />
-          {{range .Artists}}{{.}}<br/>{{end}} <br>
-          <a href="/">Main page</a>
-        </h1>
-    </div>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/styles/member.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <title>Groupie Tracker</title>
+</head>
+
+<body>
+  <div class="wrapper"></div>
+  <div class="container">
+    <h1 class="title">
+      {{.Title}}:<br />
+      {{range .Artists}}{{.}}<br />{{end}} <br>
+      <a href="/">Main page</a>
+    </h1>
+  </div>
+</body>
+
 </html>

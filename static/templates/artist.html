@@ -1,57 +1,62 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Grouipie Tracker</title>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <link rel="stylesheet" href="/static/styles/artist.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-      rel="stylesheet"/>
-      <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
-      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-      <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-  </head>
-  <body>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/styles/artist.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <title>Groupie Tracker</title>
+</head>
+
+<body>
     {{$API := .}} {{$ID := .ID}}
-    <div class="bg-image" style="
-    background-image: url({{ (index .Artists $ID).Image }});
-    filter: blur(25px);
-    -webkit-filter: blur(25px);
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;">
-  </div>
+    
+    <div class="bg" style="
+            background-image: url({{ (index .Artists $ID).Image }});
+            filter: blur(25px);
+            -webkit-filter: blur(25px);
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            "></div>
     <div class="container">
-      <div><img class="cover" src="{{ (index .Artists $ID).Image }}" /></div>
-      <div class="info">
-        <p class="nametitle">{{ (index .Artists $ID).Name }}</p>
-        <p class="infotitle">Members:</p>
-        <p class="infotext">/ {{ range (index .Artists $ID).Members }} {{.}} / {{end}}</p>
-        <p class="infotitle">Creation date:</p>
-        <p class="dates">{{ (index .Artists $ID).CreationDate }}</p>
-        <p class="infotitle">First album:</p>
-        <p class="dates">{{ (index .Artists $ID).FirstAlbum }}</p>
-      </div>
-      <div class="nav">
-        <a href="/" class="link">Main</a><br /><br />
-        <a href="https://groupietrackers.herokuapp.com/api" class="link">API</a><br /><br />
-        <a href="https://github.com/alseiitov" class="link">Author</a><br /><br />
-      </div>
-      <div class="concerts">
-        <p class="infotitle">Concert Dates:</p>
-        <br />
-        {{range $i, $v := (index .Locations.Index $ID).Locations}}
-        <p class="cities">{{ . }}</p>
-        {{ range index (index $API.Relation.Index $ID).DatesLocations $v}}
-        <p class="dates">{{.}}</p>
-        {{end}}<br />
-        {{end}}
-        <div id="map"></div>
-      </div>
+        <div class="image">
+            <img class="cover" src="{{ (index .Artists $ID).Image }}">
+        </div>
+        <div class="info">
+            <p class="nametitle">{{ (index .Artists $ID).Name }}</p>
+            <p class="infotitle">Members:</p>
+            <p class="infotext">/ {{ range (index .Artists $ID).Members }} {{.}} / {{end}}</p>
+            <p class="infotitle">Creation date:</p>
+            <p class="dates">{{ (index .Artists $ID).CreationDate }}</p>
+            <p class="infotitle">First album:</p>
+            <p class="dates">{{ (index .Artists $ID).FirstAlbum }}</p>
+        </div>
+        <div class="nav">
+            <a href="/" class="link">Main</a>
+            <a href="https://groupietrackers.herokuapp.com/api" class="link">API</a>
+            <a href="https://github.com/alseiitov" class="link">Author</a>
+        </div>
+        <div class="concerts">
+            <p class="infotitle">Concert Dates:</p>
+            <br />
+            {{range $i, $v := (index .Locations.Index $ID).Locations}}
+            <p class="cities">{{ . }}</p>
+            {{ range index (index $API.Relation.Index $ID).DatesLocations $v}}
+            <p class="dates">{{.}}</p>
+            {{end}}<br />
+            {{end}}
+            <div id="map"></div>
+        </div>
     </div>
     <script src="/static/js/map.js"></script>
-  </body>
+</body>
+
 </html>

@@ -1,140 +1,191 @@
-body,
-html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
+body, html {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 * {
-  margin: 0px 0px 0px 0px;
-}
-
-body {
-  background-color: rgba(0, 0, 0, 0.37);
-  height: 100%;
-  justify-content: center;
-  position: absolute;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-}
-
-input {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 0px solid white;
-  height: 30px;
-  border-radius: 5px;
-  padding-left: 10px;
-}
-
-button {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 0px solid white;
-  height: 30px;
-  width: 105px;
-
-  border-radius: 5px;
-  padding-left: 10px;
+    margin: 0px 0px 0px 0px;
 }
 
 .container {
-  justify-content: left;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 300px 900px;
-  grid-template-rows: 300px 600px;
-  grid-template-areas: ". ." ". .";
-  height: 900px;
-  width: 1200px;
-  padding: none;
-  font-size: 20px;
-  z-index: 2;
-  border: none;
-  border-radius: 30px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.infotitle {
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 15px;
-}
-
-.dates {
-  font-style: italic;
-  font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: grid;
+    grid-template: 0.25fr 0.75fr / 0.25fr 0.75fr;
+    width: 90vw;
+    max-width: 1000px;
+    height: 90vw;
+    max-height: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
 }
 
 .cover {
-  border-radius: 15px;
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-radius: 2%;
 }
 
 .info {
-  margin-left: 20px;
-  overflow-y: inherit;
-  font-size: 20px;
+    font-size: 20px;
+    margin-left: 10px;
+    overflow: auto;
+    scrollbar-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.3);
+    scrollbar-width: thin;
 }
 
 .nametitle {
-  /* text-transform: uppercase; */
-  font-weight: 600;
-  font-size: 40px;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.infotitle {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.dates {
+    font-style: italic;
+    font-size: 20px;
 }
 
 .nav {
-  font-weight: 700;
-  padding-top: 20px;
+    margin-top: 10px;
+    font-weight: 700;
 }
 
-.search {
-  width: 289px;
-  margin-bottom: 5px;
-
-}
-
-.selector {
-  background: url("down.svg") no-repeat 95% center;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 0px solid white;
-  height: 30px;
-  border-radius: 5px;
-  padding-left: 5px;
-  background-size: 10px 10px;
-  -webkit-appearance: none;
-  outline: none;
-  width: 190px;
-
+a {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .link {
-  text-decoration: none;
-  color: white;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
 }
 
 .concerts {
-  margin-left: 20px;
-  overflow: auto;
-  scrollbar-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.3);
-  scrollbar-width: thin;
+    margin-top: 10px;
+    margin-left: 10px;
+    overflow: auto;
+    scrollbar-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.3);
+    scrollbar-width: thin;
 }
 
 .cities {
-  text-transform: uppercase;
+    font-size: 22px;
+    text-transform: uppercase;
 }
 
 #map {
-  width: 860px;
-  height: 400px;;
+    height: 400px;
 }
+
+@media all and (max-device-width: 1200px) {
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+    .bg {
+        display: none;
+    }
+    .container {
+        margin-top: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        justify-content: center;
+        display: table;
+        height: 90vh;
+        overflow: scroll;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    .cover {
+        width: 90vw;
+        height: 90vw;
+    }
+    .nav {
+        margin: 0;
+        margin-bottom: 15px;
+        display: table-header-group;
+        text-align: center;
+    }
+
+    a {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        margin: 0px;
+        padding: 2px;
+    }
+    .info {
+        margin: 10px 5px 10px 5px;
+        
+        width: 100%;
+        font-size: 18px;
+        
+    }
+    .nametitle {
+        font-weight: 600;
+        font-size: 30px;
+        
+    }
+    .infotitle {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 10px;
+    }
+    .dates {
+        font-style: italic;
+        font-size: 18px;
+    }
+    .nav {
+        margin-top: 5px;
+        font-weight: 700;
+    }
+    a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .link {
+        font-size: 18px;
+        text-decoration: none;
+        color: white;
+    }
+    .concerts {
+        margin: 30px 5px 10px 5px;
+       
+        height: fit-content;
+        
+        scrollbar-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.3);
+        scrollbar-width: thin;
+    }
+    .cities {
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    #map {
+        margin: 0;
+        height: 500px;
+    }
+}
+
+/* 
+@media all and (max-device-width: 640px) {
+
+}
+
+@media all and (max-device-width: 320px) {
+    .link {
+        font-size: 18px;
+       
+    }
+} */
