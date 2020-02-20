@@ -24,7 +24,7 @@ body, html {
 
 
 .container {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 90vw;
   max-width: 1000px;
   height: 90vw;
@@ -60,7 +60,7 @@ a {
       padding: 10px;
       justify-content: center;
       display: table;
-      height: 85vh;
+      height: 80vh;
       overflow: scroll;
       position: absolute;
       top: 50%;

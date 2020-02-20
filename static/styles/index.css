@@ -61,7 +61,7 @@ button:hover {
 .container {
   justify-content: center;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
   display: grid;
   width: 90vw;
   max-width: 1000px;
@@ -127,7 +127,7 @@ button:hover {
       padding: 10px;
       justify-content: center;
       display: table;
-      height: 90vh;
+      height: 80vh;
       overflow: scroll;
       position: absolute;
       top: 50%;
