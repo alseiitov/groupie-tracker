@@ -19,7 +19,7 @@ func sendArtist(w http.ResponseWriter, r *http.Request, toSearch string) {
 	}
 	//Sending not found page if artist not found
 	if All.ID == -1 {
-		temp, err := template.ParseFiles("../static/templates/noresult.html")
+		temp, err := template.ParseFiles("./static/templates/noresult.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -27,7 +27,7 @@ func sendArtist(w http.ResponseWriter, r *http.Request, toSearch string) {
 		temp.Execute(w, toSearch)
 	} else {
 		//Send info to user
-		temp, err := template.ParseFiles("../static/templates/artist.html")
+		temp, err := template.ParseFiles("./static/templates/artist.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -54,7 +54,7 @@ func sendMember(w http.ResponseWriter, r *http.Request, toSearch string) {
 	}
 	//Sending not found page if artist not found
 	if memberPage.Title == "" {
-		temp, err := template.ParseFiles("../static/templates/noresult.html")
+		temp, err := template.ParseFiles("./static/templates/noresult.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -62,7 +62,7 @@ func sendMember(w http.ResponseWriter, r *http.Request, toSearch string) {
 		temp.Execute(w, toSearch)
 	} else {
 		//Sending info about member
-		temp, err := template.ParseFiles("../static/templates/member.html")
+		temp, err := template.ParseFiles("./static/templates/member.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -90,7 +90,7 @@ func sendLocation(w http.ResponseWriter, r *http.Request, toSearch string) {
 	}
 	//Sending not found page if artist not found
 	if locationPage.Title == "" {
-		temp, err := template.ParseFiles("../static/templates/noresult.html")
+		temp, err := template.ParseFiles("./static/templates/noresult.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -98,7 +98,7 @@ func sendLocation(w http.ResponseWriter, r *http.Request, toSearch string) {
 		temp.Execute(w, toSearch)
 	} else {
 		//Sending info about location
-		temp, err := template.ParseFiles("../static/templates/location.html")
+		temp, err := template.ParseFiles("./static/templates/location.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -123,7 +123,7 @@ func sendFirstAlbum(w http.ResponseWriter, r *http.Request, toSearch string) {
 	}
 	if firstAlbumPage.Title == "" {
 		//Sending not found page if artist not found
-		temp, err := template.ParseFiles("../static/templates/noresult.html")
+		temp, err := template.ParseFiles("./static/templates/noresult.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -131,7 +131,7 @@ func sendFirstAlbum(w http.ResponseWriter, r *http.Request, toSearch string) {
 		temp.Execute(w, toSearch)
 	} else {
 		//Sending info about location
-		temp, err := template.ParseFiles("../static/templates/firstalbum.html")
+		temp, err := template.ParseFiles("./static/templates/firstalbum.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -157,7 +157,7 @@ func sendCreationDate(w http.ResponseWriter, r *http.Request, toSearch string) {
 	}
 	if creationDatePage.Title == "" {
 		//Sending not found page if artists not found
-		temp, err := template.ParseFiles("../static/templates/noresult.html")
+		temp, err := template.ParseFiles("./static/templates/noresult.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -165,7 +165,7 @@ func sendCreationDate(w http.ResponseWriter, r *http.Request, toSearch string) {
 		temp.Execute(w, toSearch)
 	} else {
 		//Sending info about creation date
-		temp, err := template.ParseFiles("../static/templates/creationdate.html")
+		temp, err := template.ParseFiles("./static/templates/creationdate.html")
 		if err != nil {
 			sendError(w, 500)
 			return
@@ -188,7 +188,7 @@ func sendError(w http.ResponseWriter, status int) {
 
 	w.WriteHeader(status)
 
-	temp, err := template.ParseFiles("../static/templates/error.html")
+	temp, err := template.ParseFiles("./static/templates/error.html")
 	if err != nil {
 		sendError(w, 500)
 		return

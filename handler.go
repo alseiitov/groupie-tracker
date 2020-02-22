@@ -16,7 +16,7 @@ func indexHandle(w http.ResponseWriter, r *http.Request) {
 	//Check for request method
 	switch r.Method {
 	case "GET":
-		temp, err := template.ParseFiles("../static/templates/index.html")
+		temp, err := template.ParseFiles("./static/templates/index.html")
 		if err != nil {
 			sendError(w, 500)
 			return
