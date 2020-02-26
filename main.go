@@ -12,11 +12,14 @@ func main() {
 	parseJSON()
 
 	//Serving static files
-	fs := http.FileServer(http.Dir("static"))
+	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	//Index handler
 	http.HandleFunc("/", indexHandle)
+
+	//Filter habdler
+	http.HandleFunc("/filter/", filterHandle)
 
 	//Set port
 	port := os.Getenv("PORT")

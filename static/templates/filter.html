@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/styles/filter.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <title>Groupie Tracker</title>
+</head>
+
+<body>
+  <div class="wrapper"></div>
+  <div class="container">
+    <form method="POST" class="filters" action="/filter/all">
+      <div class="cb">
+        <p class="cb-title">Filter by:</p>
+        <input type="checkbox" id="cb-cd" onclick="show('cb-cd', 'filter-cd')">
+        <label for="cb-cd"> Creation date</label><br>
+        <input type="checkbox" id="cb-fad" onclick="show('cb-fad', 'filter-fad')">
+        <label for="cb-fad"> First album date</label><br>
+        <input type="checkbox" id="cb-nom" onclick="show('cb-nom', 'filter-nom')">
+        <label for="cb-nom"> Number of members</label><br>
+        <input type="checkbox" id="cb-loc" onclick="show('cb-loc', 'filter-loc')">
+        <label for="cb-loc"> Location</label><br>
+      </div>
+      <div>
+        <div class="filter-inputs" id="filter-cd" style="display:none">
+          <p>Creation date:</p>
+          <input name="cd-from" placeholder="From">
+          <input name="cd-to" placeholder="To"> <br>
+        </div>
+        <div class="filter-inputs" id="filter-fad" style="display:none">
+          <p>First album date:</p>
+          <input name="fad-from" placeholder="From">
+          <input name="fad-to" placeholder="To"> <br>
+        </div>
+        <div class="filter-inputs" id="filter-nom" style="display:none">
+          <p>Number of members:</p>
+          <input name="nom-from" placeholder="From">
+          <input name="nom-to" placeholder="To"> <br>
+        </div>
+        <div class="filter-inputs" id="filter-loc" style="display:none">
+          <p>Location:</p>
+          <input name="loc"> <br>
+        </div>
+      </div>
+      <button type="submit">Filter</button>
+    </form>
+
+    <div class="artists">
+      {{range $i, $v := .Artists}}
+      <div class="artist">
+        <div class="cover"> <img class="img " src="{{.Image}}" alt=""> </div>
+        <div class="info">
+          <p class="title"><a href="/filter/{{.ID}}">{{.Name}}</a></p>
+          <p>Creation date: {{.CreationDate}}</p>
+          <p>First album date: {{.FirstAlbum}}</p>
+          <p>Number of members: {{len .Members}}</p>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+  <script src="/static/js/filter.js"></script>
+</body>
+
+</html>
