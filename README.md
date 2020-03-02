@@ -1,16 +1,18 @@
 # Groupie Tracker
 
-[Groupie Tracker](http://gtrackers.herokuapp.com/) contains information about some bands and artists like their name(s), image, in which year they began their activity, the date of their first album and the members, their last and/or upcoming concert locations etc.
+Link: http://g-tracker.herokuapp.com/
 
-Front-end:
+[Groupie Tracker](http://g-tracker.herokuapp.com/) contains information about some bands and artists like their name(s), image, in which year they began their activity, the date of their first album and the members, their last and/or upcoming concert locations etc.
+
+**Front-end:**
   - HTML
   - CSS
   - JS
 
-Back-end:
+**Back-end:**
  - Golang
 
-Used APIs:
+**Used APIs:**
  - [Groupie Tracker API](https://groupietrackers.herokuapp.com/api) 
  - [Here MAP API](https://developer.here.com/) 
 
@@ -25,3 +27,4 @@ or
 $ go build
 $ PORT=8080 ./groupie-tracker
 ```
+and open http://localhost:8080 in your browser
