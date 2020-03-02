@@ -9,7 +9,6 @@ Front-end:
 
 Back-end:
  - Golang
- - used [API](https://groupietrackers.herokuapp.com/api)
 
 Used APIs:
  - [Groupie Tracker API](https://groupietrackers.herokuapp.com/api) 
