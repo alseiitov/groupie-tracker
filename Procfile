@@ -1,1 +1,1 @@
-web: ./gtheroku
+web: ./groupie-tracker

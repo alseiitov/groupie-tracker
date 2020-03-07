@@ -2,7 +2,7 @@
    "comment": "",
    "ignore": "test",
    "package": [],
-   "rootPath": "github.com/alseiitov/gtheroku",
+   "rootPath": "github.com/alseiitov/groupie-tracker",
    "heroku": {
       "install": [
          "./..."
