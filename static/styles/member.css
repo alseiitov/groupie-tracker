@@ -55,6 +55,26 @@ a {
   font-size: 30px;
 }
 
+@media all and (max-device-width: 1366px) {
+  .container {
+      padding: 10px;
+      justify-content: center;
+      height: 80vh;
+      overflow: scroll;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .title {
+    font-size: 30px;
+  }
+  a{
+    font-size: 25px;
+  }
+}
+
+
 @media all and (max-device-width: 1200px) {
   .container {
       padding: 10px;

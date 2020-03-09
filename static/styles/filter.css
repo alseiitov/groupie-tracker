@@ -135,6 +135,22 @@ a {
   height: 100%;
 }
 
+@media all and (max-device-width: 1366px) {
+  .container {
+    padding: 10px;
+    justify-content: center;
+    height: 80vh;
+    overflow: scroll;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .artist {
+    width: 220px;
+  }
+}
+
 @media all and (max-device-width: 1200px) {
   .wrapper {
     display: none;
@@ -149,5 +165,8 @@ a {
     top: 0%;
     left: 50%;
     transform: translate(-50%, 0%);
+  }
+  .artist {
+    width: 90vw;
   }
 }
